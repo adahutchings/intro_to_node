@@ -1,0 +1,28 @@
+1. Run the commands sort, wc and uniq on the commands.js file. Explain how they work and what the output was.
+     - wc : WordCount. Counts the lines, words, and characters of the file or line typed. 
+	$wc commands.js >> 38	75	817 commands.js
+     - sort : sorts a file alphabetically (can be numerically with addition of -n)
+	$sort alphabetize.txt >> Cross Dive Dive Fell Hover Jog Jog Ran Shashay Skipped Tripped (original file was not in alphabetical order).
+     - uniq : removes duplicate lines. Commonly used after sort with a pipe. 
+	$sort alphabetize | uniq >> Cross Dive Fell Hover Jog Ran Shashay Skipped Tripped
+
+2. Using the pipe (|) connect at least two commands and run it on command.js. Explain what the output was and why the specific data was outputted. 
+     - $sort alphabetize.txt | uniq | wc >> 9   9   55
+	Originally wc of alphabetize.txt was 11   11   94. By combining sort and uniq the word count happens last in the pipeline so it counts only the uniq words and does not count the duplicates, returning a smaller word count. 
+
+6. Create Reverse String 
+
+var string = "I'm learning to program algorithms!";
+
+function reverseString(string) {
+  var array = string.split(' ');
+  var arrayPush = [];
+  array.forEach((element)=> {
+    var word = element.split('').reverse().join('');
+    arrayPush.push(word);
+  })
+  return arrayPush.join(' ');
+}
+
+console.log(reverseString(string));
+
